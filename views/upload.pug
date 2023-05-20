@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title Slack Message Sender
+  body
+    h1 Slack Message Sender
+    form#slackForm(action='/upload', method='post')
+      label(for='channel', style='display: block;') Channel
+      select#channel(name='channel', style='display: block;')
+        each channel in channels
+          option(value=channel) #{channel}
+      label(for='message', style='display: block;') Message
+      textarea#message(name='message', style='display: block;')
+      button#sendBtn(type='submit', style='display: block;') Send Message
+
+    div#response(style='margin-top: 20px;')
+
+    script.
+      document.getElementById('slackForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const channel = document.getElementById('channel').value;
+        const message = document.getElementById('message').value;
+
+        try {
+          const response = await fetch('/upload', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ channel, message })
+          });
+
+          if (!response.ok) {
+            throw new Error('Failed to send message. Please try again.');
+          }
+
+          const data = await response.text();
+          document.getElementById('response').innerText = data;
+        } catch (error) {
+          console.error(error);
+          document.getElementById('response').innerText = 'An error occurred while trying to send the message.';
+        }
+      });
