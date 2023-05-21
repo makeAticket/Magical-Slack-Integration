@@ -2,19 +2,9 @@
  
 This repository contains a prototype for integrating with Slack using Node.js. The application allows you to send messages to channels and convert raw data to Slack-formatted messages.
 
-## Prerequisites
-
-- Node.js (version X.X.X or higher)
-- npm (version X.X.X or higher)
-- Access to a Slack workspace with a Slack app
-
 ## Installation
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/slack-integration-prototype.git
-   ```
+1. Clone the repository
 
 2. Install the dependencies:
 
