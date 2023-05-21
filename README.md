@@ -20,7 +20,7 @@ This repository contains a prototype for integrating with Slack using Node.js. T
 
      ```dotenv
      SLACK_CLIENT_ID=5296783228034.5296654907875
-     SLACK_CLIENT_SECRET=423f05bdb0b6baa6bf8399fa4d778405
+     SLACK_CLIENT_SECRET=askWesley
      SLACK_REDIRECT_URI=https://dalton.ngrok.io/oauth_redirect
      ```
 
