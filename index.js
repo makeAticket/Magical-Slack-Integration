@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const axios = require('axios');
 const open = require('open');
 const fs = require('fs');
@@ -30,8 +30,7 @@ app.get('/connect', async (req, res) => {
   try {
     // Redirect the user to the Slack authorization page
     const authorizeUrl = `https://slack.com/oauth/v2/authorize?client_id=${slackClientId}&scope=channels:read,im:read,groups:read,mpim:read,chat:write,chat:write.public&redirect_uri=${slackRedirectUri}`;
-    await open(authorizeUrl);
-    res.send("Please authorize the app from the opened Slack page...");
+    res.redirect(authorizeUrl);
   } catch (error) {
     console.error(error);
     res.status(500).send('An error occurred while initiating Slack authorization.');
